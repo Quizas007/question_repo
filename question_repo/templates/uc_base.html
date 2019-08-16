@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<div class="row">
+  <aside class="profile-info col-lg-3">
+    <div class="panel">
+      <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked">
+{#        {% url 'usercenter:profile' as uc_profile %}#}
+{#        {% url 'usercenter:change_passwd' as uc_change_passwd %}#}
+{#        {% url 'usercenter:answer' as uc_answer %}#}
+{#        {% url 'usercenter:collect' as uc_collect %}#}
+{#        {% url 'usercenter:contribut' as uc_contribut %}#}
+{#        {% url 'usercenter:approval' as uc_approval %}#}
+        <li role="presentation"><a href="">个人资料</a></li>
+        <li role="presentation"><a href="">修改密码</a></li>
+        <li role="presentation"><a href="">我的回答</a></li>
+        <li role="presentation"><a href="">我的收藏</a></li>
+        <li role="presentation"><a href="">我的贡献</a></li>
+        {# 判断用户是否有审核权限 #}
+    {#        {% if perms.repo.can_change_question_status or request.user.is_superuser %}#}
+    {#            <li role="presentation" class="{% if current_url == uc_approval %}active{% endif %}"><a href="{% url 'usercenter:approval' %}">审核状态</a></li>#}
+    {#        {% endif %}#}
+        </ul>
+      </div>
+    </div>
+  </aside>
+  <aside class="profile-info col-lg-9">
+      <section>
+          <div class="row">
+            {% block uc_content %}
+              <div class="col-lg-12">
+                  <div class="panel">
+                      <div class="panel-body">
+                          <div class="bio-chart">
+                              <input class="knob" data-width="100" data-height="100" data-displayPrevious=true  data-thickness=".2" value="35" data-fgColor="#e06b7d" data-bgColor="#e8e8e8">
+                          </div>
+                          <div class="bio-desk">
+                              <h4 class="red">Envato Website</h4>
+                              <p>Started : 15 July</p>
+                              <p>Deadline : 15 August</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            {% endblock %}
+          </div>
+      </section>
+  </aside>
+</div>
+{% endblock %}
+{% block load_js %}
+  <script src="{% static 'assets/jquery-knob/js/jquery.knob.js' %}"></script>
+  <script>
+      //knob
+      $(".knob").knob();
+  </script>
+{% endblock %}

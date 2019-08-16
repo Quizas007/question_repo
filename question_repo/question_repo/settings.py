@@ -38,9 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.accounts',
-    'apps.repo',
+    'apps.repo.apps.RepoConfig',
     'apps.usercenter',
     'apps.apis',
+    'ckeditor',
+    'ckeditor_uploader',
+    'easy_thumbnails',
 ]
 
 MIDDLEWARE = [
@@ -66,6 +69,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 全局信息展示
+                'question_repo.context_processors.site_info',
             ],
         },
     },
@@ -251,3 +256,53 @@ CACHES = {
 }
 
 AUTH_USER_MODEL = 'accounts.User'
+
+FontPath = os.path.join(BASE_DIR,'static/fonts')
+
+# 注意：在此之前需要配置MEDIA_URL和MEDIA_ROOT
+# 配置媒体文件路径
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+if not os.path.exists(MEDIA_ROOT):
+    os.mkdir(MEDIA_ROOT)
+MEDIA_URL = '/media/'
+
+# CKEditor配置
+# 真实路径为：MEDIA_URL+CKEDITOR_UPLOAD_PATH(MEDIA_ROOT/CKEDITOR_UPLOAD_PATH)
+CKEDITOR_UPLOAD_PATH = "ckeditor_upload"
+
+# 配置编辑器功能
+CKEDITOR_CONFIGS = {
+    'awesome_ckeditor': {
+        'toolbar': 'Basic',
+    },
+    'default_ckeditor':{
+        'toolbar': 'Full',
+    },
+    'default': {
+        'toolbar': 'Full',
+    },
+}
+
+# 配置缩略图（easy_tuhubnail暂时生成不出来...）
+THUMBNAIL_ALIASES = {
+    # target: 'accounts.User' => 给哪个app/Model/Field配置缩略图
+    '': {
+        # avatar: 表示将来引用的名字
+        # crop: False=> 不裁剪、同比例缩小
+        'avator': {'size': (50, 50), 'crop': True},
+    },
+
+    # 'accounts': {
+    #     'xs': {'size': (30, 30), 'crop': True},
+    #     'xs_nocorp': {'size': (30, 30), 'crop': False},
+    # },
+}
+
+
+SITE_NAME = "题库系统"
+SITE_DESC = "人生苦短，我用python"
+SITE_KEYWORDS = "python,django,flask"
+
+
+STATIC_ROOT = os.path.join(BASE_DIR,"allstatic")

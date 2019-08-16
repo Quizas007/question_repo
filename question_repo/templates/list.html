@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    {% for question in questions %}
+    {{ question }}<br>
+    {% endfor %}
+    {% if questions.has_previous %}
+        <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ questions.previous_page_number }}">previous</a>
+    {% endif %}
+    <span>
+        Page {{ questions.number }} of {{ questions.paginator.num_pages }}.
+    </span>
+    {% if questions.has_next %}
+        <a href="?page={{ questions.next_page_number }}">next</a>
+        <a href="?page={{ questions.paginator.num_pages }}">last &raquo;</a>
+    {% endif %}
+{% endblock %}

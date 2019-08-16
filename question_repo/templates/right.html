@@ -1,0 +1,110 @@
+{% load staticfiles %}
+<aside class="profile-info col-lg-3">
+  <!--follower start-->
+  <section class="panel">
+      <div class="follower">
+          <div class="panel-body">
+              <div class="follow-ava">
+                  <img src="{% static 'img/1534323246.png' %}" alt="">
+              </div>
+              <h4>admin</h4>
+              <h4>您已完成 7 道面试题，加油！</h4>
+          </div>
+      </div>
+      <footer class="follower-foot">
+          <ul>
+              <li>
+                  <h4>7/489</h4>
+                  <p>刷题量：1 %</p>
+              </li>
+              <li>
+                  <h4>第1名</h4>
+                  <p>当前排名：1/4</p>
+              </li>
+          </ul>
+      </footer>
+  </section>
+  <!--follower end-->
+  <!--热门题目 start-->
+  <section class="panel">
+      <div class="panel-body progress-panel">
+          <div class="task-progress">
+              <h1>热门算法题目</h1>
+              <p>答题人数最多的题目</p>
+          </div>
+      </div>
+      <table class="table table-hover personal-task">
+          <tbody>
+              <tr>
+                  <td>1</td>
+                  <td>
+                      <a href="http://127.0.0.1:8000/question/7679/" title="sql优化">7679. sql优化</a>
+                  </td>
+                  <td>
+                      <span class="label label-info">入门</span>
+                  </td>
+              </tr>
+              <tr>
+                  <td>2</td>
+                  <td>
+                      <a href="http://127.0.0.1:8000/question/7576/" title="三次握手">7576. 三次握手</a>
+                  </td>
+                  <td>
+                      <span class="label label-info">入门</span>
+                  </td>
+              </tr>
+              <tr>
+                  <td>3</td>
+                  <td>
+                      <a href="http://127.0.0.1:8000/question/7567/" title="单向链表如何使用快速排序算法进行排序；">7567. 单向链表如何使...</a>
+                  </td>
+                  <td>
+                          <span class="label label-info">入门</span>
+                  </td>
+              </tr>
+              <tr>
+                  <td>4</td>
+                  <td>
+                      <a href="http://127.0.0.1:8000/question/7584/" title="HTTP和HTTPS">7584. HTTP和HTTPS</a>
+                  </td>
+                  <td>
+                          <span class="label label-info">入门</span>
+                  </td>
+              </tr>
+              <tr>
+                  <td>5</td>
+                  <td>
+                      <a href="http://127.0.0.1:8000/question/7580/" title="Post和Get">7580. Post和Get</a>
+                  </td>
+                  <td>
+                          <span class="label label-info">入门</span>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </section>
+  <!--work progress end-->
+  <!--近30天刷题用户排行榜 start-->
+  <section class="panel">
+      <div class="panel-body progress-panel">
+          <div class="task-progress">
+              <h1>近30天刷题用户排行榜</h1>
+              <p></p>
+          </div>
+      </div>
+      <table class="table table-hover personal-task">
+          <tbody>
+              <tr>
+                  <td>1</td>
+                  <td>
+                      <a href="">admin</a>
+                  </td>
+                  <td>
+                      <span>1/489</span>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </section>
+  <!--work progress end-->
+</aside>
